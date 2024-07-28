@@ -1,0 +1,25 @@
+# VIM
+RUN :PlugInstall in ~/.config/nvim/init.vim
+Then uncomment colorscheme
+
+-- Plug Help: https://github.com/junegunn/vim-plug
+-- LSP Config: https://github.com/neovim/nvim-lspconfig 
+
+
+# GPG_USER
+Set the GPG_USER_NAME in .crc to name on gpg key
+
+# Firefox
+- Disable Telemetry
+
+
+# Automounting Drives
+https://man.archlinux.org/man/crypttab.5
+https://www.golinuxcloud.com/mount-luks-encrypted-disk-partition-linux/
+https://wiki.archlinux.org/title/Dm-crypt/System_configuration#Unlocking_with_a_keyfile
+
+summary:
+Generate key file:   $(dd if=/dev/random bs=512 count=1 of=/root/autoMountKey)
+Add key to luks drive:  $(cryptsetup luksAddKey PATH_TO_DRIVE /root/autoMountKey) #Drive not mounted??
+Add to /etc/cryttab: "decrypt_drive    PATH_TO_DRIVE   /root/autoMountKey"
+Add to /etc/fstab: "/dev/mapper/decrypt_drive  MOUNT_PATH  ext4  defaults  0  0"

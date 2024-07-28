@@ -1,0 +1,6 @@
+Encryption and Decryption base come from 
+https://github.com/sixArm/gpg-encrypt
+https://github.com/SixArm/gpg-decrypt
+
+https://github.com/SixArm/openssl-encrypt
+https://github.com/SixArm/openssl-decrypt

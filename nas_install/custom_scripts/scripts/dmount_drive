@@ -1,0 +1,24 @@
+#!/bin/bash
+# Mount Drive
+
+set -eu
+
+ls $HOME/
+# Get Drive
+printf "\nWhich ext_hdd folder\n"
+read d_num 
+
+# Dismount 
+file_loc="$HOME/ext_hdd_$d_num"
+sudo umount $file_loc
+
+# Close crypto
+crypto_drive="cryptdrive_$d_num"
+map="/dev/mapper/$crypto_drive"
+sudo cryptsetup close $crypto_drive
+
+# rm Folder
+rm -rf $file_loc
+
+exit
+

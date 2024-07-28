@@ -1,0 +1,9 @@
+#!/bin/bash
+# Update all ubuntu files
+
+
+sudo apt update \
+    && sudo apt upgrade -y \
+    && sudo apt autoremove -y \
+    && sudo rm -rf /var/lib/apt/lists/* /var/log/dpkg.log
+

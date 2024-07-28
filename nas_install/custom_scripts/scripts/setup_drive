@@ -1,0 +1,32 @@
+#!/bin/bash
+# Setup drive for encryption
+# https://wiki.archlinux.org/title/dm-crypt/Device_encryption#Unlocking/Mapping_LUKS_partitions_with_the_device_mapper
+
+set -eu
+
+# Get Drive
+lsblk
+printf "\nWhich Drive\n"
+read drive 
+export drive="/dev/$drive"
+
+# Setup Crypto Header
+sudo cryptsetup \
+    --type luks2 \
+    --cipher aes-xts-plain64 \
+    --key-size 512 \
+    --hash sha512 \
+    --iter-time 10000 \
+    --pbkdf argon2id \
+    --use-urandom \
+    --verify-passphrase \
+    luksFormat \
+    $drive
+
+# Make File System 
+sudo cryptsetup open $drive cryptroot
+sudo mkfs -t ext4 /dev/mapper/cryptroot
+#chmod a+rwxt /dev/mapper/cryptroot
+sudo cryptsetup close cryptroot
+
+exit

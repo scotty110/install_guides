@@ -1,0 +1,29 @@
+#!/bin/bash
+# Mount Drive
+
+set -eu
+
+# Get Drive
+lsblk
+printf "\nWhich Drive\n"
+read drive
+drive="/dev/$drive"
+
+# Start inc at 1?
+#d_num=$(( $(ls /dev/mapper/cryptdrive_* | wc -l) +1 ))
+
+d_num=$(ls /dev/mapper/cryptdrive_* | wc -l)
+crypto_drive="cryptdrive_$d_num"
+map="/dev/mapper/$crypto_drive"
+
+
+# Mount Drive
+sudo cryptsetup open $drive $crypto_drive
+file_loc="$HOME/ext_hdd_$d_num"
+mkdir -p $file_loc
+
+# Create new sys link to mount drive
+sudo mount $map $file_loc 
+
+exit
+

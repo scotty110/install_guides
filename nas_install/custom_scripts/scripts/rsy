@@ -1,0 +1,10 @@
+#!/bin/bash
+# sync drives (or other files)
+# https://unix.stackexchange.com/questions/392536/how-can-i-sync-two-local-directories
+# https://unix.stackexchange.com/questions/456501/exclude-all-dot-underscore-files-from-rsync
+
+#https://www.howtogeek.com/427480/how-to-back-up-your-linux-system/
+#https://www.digitalocean.com/community/tutorials/how-to-use-rsync-to-sync-local-and-remote-directories
+#rsync -avz --progress --exclude=".*"  ./From ./To
+
+rsync -av --progress --exclude=".*" $@

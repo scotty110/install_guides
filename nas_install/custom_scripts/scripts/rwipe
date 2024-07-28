@@ -1,0 +1,20 @@
+#!/bin/bash
+# Random Wipe for MacOS
+# https://wiki.archlinux.org/index.php/Securely_wipe_disk/Tips_and_tricks#dd_-_advanced_example
+
+set -eu
+
+# List Drives
+lsblk 
+echo "which drive"
+read drive
+
+# Write Random Data
+export LC_CTYPE=C
+PASS=$(tr -c -d '[:alnum:]' < /dev/urandom | head -c128)
+
+# AES wipe
+openssl enc -aes-256-ctr -pass pass:"$PASS" -md sha512 -iter 100000 -nosalt </dev/zero | dd bs=64k ibs=64k of=$drive
+echo "DONE"
+
+exit
