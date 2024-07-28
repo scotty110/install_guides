@@ -35,6 +35,10 @@ sh $PARENT_DIR/age/install.sh
 # Install Custom Scripts
 sh $PARENT_DIR/custom_scripts/install.sh
 
+# Move Notes to Desktop
+cp $PARENT_DIR/notes/*.txt $HOME/Desktop/
+
+
 # Clean up
 sudo rm -rf /var/lib/apt/lists/*
 

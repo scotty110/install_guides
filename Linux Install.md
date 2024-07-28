@@ -2,6 +2,9 @@ Going to be installing stuff on top of PopOS, but this should work for other ubu
 
 Install PopOS according to installer (don't forget encryption, ssd's can't be wiped)
 
+PopOS is not shipping with openssh installed after installing from iso run:
+	`sudo apt install -y openssh-server` 
+
 ## Install Basic Utils
 Just Install some basic packages and custom scripts
 ### On Host 

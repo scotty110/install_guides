@@ -9,7 +9,7 @@ else
 fi
 
 # Install Age
-sudo apt update && sudo apt install -y age
+sudo apt install -y age
 
 # Add Age to crc
 cat >> $HOME/.crc << EOF

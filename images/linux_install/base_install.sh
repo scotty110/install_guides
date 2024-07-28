@@ -8,15 +8,6 @@ else
 	CHILD_DIR=$PARENT_DIR/DIR
 fi
 
-# Install Age
-sudo apt update && sudo apt install -y age
-
-# Add Age to crc
-cat >> $HOME/.crc << EOF
-
-# AGE
-export AGE_PUB=
-
-EOF
+# Install Things
 
 exit
