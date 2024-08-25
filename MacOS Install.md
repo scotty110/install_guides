@@ -35,8 +35,8 @@ Download 3 Browsers: Brave, Mullvad, Tor. Setup Safari
 1. Download [Mullvad](https://mullvad.net/en/browser). [Browser][https://mullvad.net/en/download/browser], [VPN](https://mullvad.net/en/download/vpn/macos). Both are in the downloads section
 2. Sign into VPN `pass -c wifi/vpn` 
 3. Set Mullvad as default web browser. Search `default browser` and change it.
-4. Set to custom DNS [Options](https://mullvad.net/en/help/dns-over-https-and-dns-over-tls) `https://all.dns.mullvad.net/dns-queryhttps://all.dns.mullvad.net/dns-query`
-5. Set as default search `default web browser`
+4. Set to custom DNS [Options](https://mullvad.net/en/help/dns-over-https-and-dns-over-tls) `https://all.dns.mullvad.net/dns-queryhttps://all.dns.mullvad.net/dns-query`  ![Diagram](./images/mullvad_dns.png) 
+7. Set as default search `default web browser` 
 
 ### Tor
 1. Download [Tor](https://www.torproject.org)
@@ -47,11 +47,10 @@ Download 3 Browsers: Brave, Mullvad, Tor. Setup Safari
     - New Private Window
     - Empty page
     - Homepage: https://duckduckgo.com/50x.html
-    - Remove History: one day
-
+    - Remove History: one day ![Diagram](./images/safari_general.png) 
 2. Settings > Search
-    - Search Engine: DuckDuckGo
-
+    - Search Engine: DuckDuckGo ![Diagram](./images/safari_search.png) 
+3. Advanced ![Diagram](./images/safari_advanced.png) 
 ## Comms
 Install Signal, Protonmail
 ### Signal
@@ -101,4 +100,5 @@ Want to be able to rip DVD's
 Just uninstall whatever crap you don't need.
 
 ## Setup Bar
-See macOS_bar.png
+
+![Diagram](./images/macOS_bar.png) 
