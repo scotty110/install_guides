@@ -17,6 +17,7 @@ This will install
 8. Setup ssh (will need to add public key manually to all other servers)
 ### Run Install.sh
 Run `install.sh` this will set up everything for you.
+Optionally install: `brew install ffmpeg yt-dlp` 
 
 ## Private
 Install GPG/AGE keys from `backup.tar.gpg`
@@ -26,10 +27,11 @@ Using `private.tar.gpg`, found on external hdd's, usb, cd's.
 3. run `ubackup`. 
 
 ## Internet
-Download 3 Browsers: Brave, Mullvad, Tor. Setup Safari
-### Brave 
-1. Download [Brave](https://brave.com)
-2. Sign into Google/Youtube using security key
+Download 3 Browsers: Zen, Mullvad, Tor. Setup Safari
+### Zen
+1. Download [Zen](https://www.zen-browser.app/download) 
+2. Follow Guide (`xattr -c '/Applications/Zen Browser.app/'`)
+3. Sign into Google/Youtube using security key
 
 ### Mullvad 
 1. Download [Mullvad](https://mullvad.net/en/browser). [Browser][https://mullvad.net/en/download/browser], [VPN](https://mullvad.net/en/download/vpn/macos). Both are in the downloads section
@@ -71,7 +73,7 @@ Install Signal, Protonmail
 
 ## TailScale
 1. Download from Apple Appstore
-2. Sign in on Brave using Google Account
+2. Sign in on Zen using Google Account
 
 ## ChatGPT
 1. Navigate to [ChatGPT](https://chatgpt.com)
