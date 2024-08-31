@@ -31,10 +31,8 @@ export NV_CONFIG=$HOME/.config/nvim
 mkdir -p $NV_CONFIG
 
 # Add Colorscheme home for NeoVim
-mkdir -p $NV_CONFIG/colors
-
-# Copy Color Schemes
-cp -r $CHILD_DIR/colors/* $NV_CONFIG/colors/
+#mkdir -p $NV_CONFIG/colors
+#cp -r $CHILD_DIR/colors/* $NV_CONFIG/colors/
 
 
 # Copy init.vim

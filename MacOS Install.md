@@ -37,7 +37,7 @@ Download 3 Browsers: Zen, Mullvad, Tor. Setup Safari
 1. Download [Mullvad](https://mullvad.net/en/browser). [Browser][https://mullvad.net/en/download/browser], [VPN](https://mullvad.net/en/download/vpn/macos). Both are in the downloads section
 2. Sign into VPN `pass -c wifi/vpn` 
 3. Set Mullvad as default web browser. Search `default browser` and change it.
-4. Set to custom DNS [Options](https://mullvad.net/en/help/dns-over-https-and-dns-over-tls) `https://all.dns.mullvad.net/dns-queryhttps://all.dns.mullvad.net/dns-query`  ![Diagram](./images/mullvad_dns.png) 
+4. Set to custom DNS [Options](https://mullvad.net/en/help/dns-over-https-and-dns-over-tls) `https://all.dns.mullvad.net/dns-query`   ![Diagram](./images/mullvad_dns.png) 
 7. Set as default search `default web browser` 
 
 ### Tor
@@ -60,9 +60,14 @@ Install Signal, Protonmail
 2. Sign into Signal, will need phone
 
 ### Protonmail
+1. Navigate to [Proton](https://account.proton.me/login?language=en)
+2. Add to Dock
+
+OR...
 1. Download [Bridge](https://proton.me/mail/bridge)
 2. Sign in (password should be in keychain)
 3. Need 2FA app, desktop currently doesn't support passkeys. Found in `recovery.tar.gpg`.
+
 
 ## Obsidian 
 1. Download [Obsidian](https://obsidian.md)
