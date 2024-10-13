@@ -39,11 +39,6 @@ Download 3 Browsers: Zen, Mullvad, Tor. Setup Safari
 3. Set Mullvad as default web browser. Search `default browser` and change it.
 4. Set to custom DNS [Options](https://mullvad.net/en/help/dns-over-https-and-dns-over-tls) `https://all.dns.mullvad.net/dns-query`   ![Diagram](./images/mullvad_dns.png) 
 7. Set as default search `default web browser` 
-
-### Tor
-1. Download [Tor](https://www.torproject.org)
-2. I don't verify (probably should)
-
 ### Safari
 1. Settings > General:
     - New Private Window
@@ -80,11 +75,6 @@ OR...
 1. Download from Apple Appstore
 2. Sign in on Zen using Google Account
 
-## ChatGPT
-1. Navigate to [ChatGPT](https://chatgpt.com)
-2. Box with up arrow > Add to Dock
-3. Open and sign in using AppleID
-
 ## VS Code
 1. [Download](https://code.visualstudio.com/)
 2. Add `export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"` to `~/.crc`.
@@ -102,6 +92,19 @@ Want to be able to rip DVD's
 ### HandBrake
 1. Download from [Link](https://handbrake.fr/)
 2. Make custom Preset, Use hardware encoder and FLAC. 
+
+## AI Tools
+ChatGPT is just not worth it compared to open source models
+### Ollama
+1. Download and install [ollama](https://ollama.com/download)
+2. Download models (will need to update)
+	1. `ollama run llama3.1`
+	2. `ollama run phi3.5`
+### Docker
+- Download [Link](https://docs.docker.com/desktop/install/mac-install/) 
+### WebUI
+- From [Link](https://github.com/open-webui/open-webui)
+- Add to `~/.crc`: `alias start_gpt='docker run -d -p 3000:8080 --add-host=host.docker.internal:host-gateway -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:main'` 
 
 ## Uninstall Crap
 Just uninstall whatever crap you don't need.
