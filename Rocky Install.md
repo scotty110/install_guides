@@ -1,25 +1,19 @@
-## Resize /
-We are using as a single user so just grow the `/` partition.
-1. Extend lvm: `sudo lvextend -l +100%FREE /dev/mapper/fedora-root`
-2. Resize filesystem (xfs): `sudo xfs_growfs /`
-
 ## Nvidia Drivers 
-See [Link](https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&Distribution=Fedoral)
-
---OR--
-1. `echo -e "blacklist nouveau\noptions nouveau modeset=0" | sudo /usr/bin/tee /etc/modprobe.d/blacklist-nouveau.conf 
-2. `bash sudo dracut --force` 
-	1. `bash sudo systemctl set-default multi-user.target`
-3. Get Driver: [Link](https://www.nvidia.com/en-us/drivers/)
-4. Install GCC: `sudo dnf install -y gcc`
-
+1. Install DKMS
+	1. `sudo dnf update -y`
+	2. `sudo dnf install epel-release`
+	3. `sudo dnf install kernel-devel kernel-headers gcc make perl`
+	4. `sudo dnf install dkms` 
+2. Install [Nvidia Driver](https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64) 
+	- Use Network install NOT local
+	1. `sudo dnf config-manager --add-repo https://developer.download.nvidia.com/compute/cuda/repos/rhel9/x86_64/cuda-rhel9.repo`
+	2. `sudo dnf -y module install nvidia-driver:open-dkms` 
 ## Base Install
 1. Copy `fedora_install` to machine
 2. Copy `authorized_keys` file to machine
 3. Run `fedora_install/install.sh`
 4. Move `authorized_keys` to `.ssh` 
 TODO, fix custom_scripts
-
 ## Auto Mount extra drives
 If we have extra drives, then we want to auto mount them. 
 
@@ -33,7 +27,6 @@ NOTE: If dealing with SATA drives, use `cwipe` or `rwipe` this will dump random 
 3. Modify so auto mount on boot
 	1. `sudo vi /etc/cryttab` : `DRIVENAME    PATH_TO_DRIVE   /root/DRIVENAME_KEY`
 	2. `sudo vi /etc/fstab`  :  `/dev/mapper/DRIVENAME  MOUNT_PATH  ext4  defaults  0  0` 
-
 ## Docker and Nvidia Runtime
 Some projects are using docker with Nvidia gpu's enabled. 
 ### Install Docker
