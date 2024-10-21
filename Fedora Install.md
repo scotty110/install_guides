@@ -14,10 +14,11 @@ See [Link](https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_ar
 4. Install GCC: `sudo dnf install -y gcc`
 
 ## Base Install
-1. Copy `fedora_install` to machine
-2. Copy `authorized_keys` file to machine
-3. Run `fedora_install/install.sh`
-4. Move `authorized_keys` to `.ssh` 
+1. Install rsync on box: `sudo dnf install -y rsync` 
+2. Copy `fedora_install` to machine
+3. Copy `authorized_keys` file to machine
+4. Run `fedora_install/install.sh`
+5. Move `authorized_keys` to `.ssh` 
 TODO, fix custom_scripts
 
 ## Auto Mount extra drives

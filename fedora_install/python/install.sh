@@ -10,8 +10,6 @@ else
 fi
 
 # Install tools
-sudo apt install -y build-essential
-
 export CONDA_HOME="$HOME/.my_conda"
 export PATH="$CONDA_HOME/bin:$PATH"
 
