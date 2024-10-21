@@ -47,9 +47,9 @@ Want to use ZFS for the features it provides. Data integrity is paramount.
 See: [ubunut_overview](https://ubuntu.com/tutorials/setup-zfs-storage-pool#1-overview) , [arstechnica_overview](https://arstechnica.com/gadgets/2021/06/a-quick-start-guide-to-openzfs-native-encryption/) 
 1. Install ZFS: `sudo apt install zfsutils-linux`
 2. Make Pool (remove -n when ready to create): `zpool create -n -m /mnt/POOL_NAME POOL_NAME raidz1 /dev/mapper/DRIVES...`
-3. (a) Make encrypted Z1 pool (use strong passphrase), set POOL_NAME to something like tank(?):
-        `zfs create -o encryption=on -o keylocation=prompt -o keyformat=passphrase -o compression=lz4 POOL_NAME/encrypted` 
-    (b) Make encrypted Z1 pool (use keyfile), set POOL_NAME to something like tank(?): 
+3. -
+	1. Make encrypted Z1 pool (use strong passphrase), set POOL_NAME to something like tank(?): `zfs create -o encryption=on -o keylocation=prompt -o keyformat=passphrase -o compression=lz4 POOL_NAME/encrypted` 
+	2. Make encrypted Z1 pool (use keyfile), set POOL_NAME to something like tank(?): 
         `sudo dd if=/dev/random bs=32 count=1 of=/root/VAULT_KEY`
         `zfs create -o encryption=on -o keylocation=/root/VAULT_KEY -o keyformat=raw -o compression=lz4 POOL_NAME/encrypted` 
 4. Make new r/w group: `sudo groupadd zfs-rw`
@@ -60,8 +60,7 @@ See: [ubunut_overview](https://ubuntu.com/tutorials/setup-zfs-storage-pool#1-ove
 ## Unencrypted (might be faster)
 1. Install ZFS: `sudo apt install zfsutils-linux`
 2. Make Pool (remove -n when ready to create): `zpool create -n -m /mnt/POOL_NAME POOL_NAME raidz1 /dev/mapper/DRIVES...`
-3. (a) Make encrypted Z1 pool (use strong passphrase), set POOL_NAME to something like tank(?):
-        `zfs create -o compression=lz4 POOL_NAME/tank`
+3. `zfs create -o compression=lz4 POOL_NAME/tank`
 4. Make new r/w group: `sudo groupadd zfs-rw`
 5. Add admin to zfs group: `sudo usermod -a -G zfs-rw ADMIN`
 6. Change owner: `sudo chown -R ADMIN:zfs-rw /mnt/POOL_NAME`

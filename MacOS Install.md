@@ -93,19 +93,6 @@ Want to be able to rip DVD's
 1. Download from [Link](https://handbrake.fr/)
 2. Make custom Preset, Use hardware encoder and FLAC. 
 
-## AI Tools
-ChatGPT is just not worth it compared to open source models
-### Ollama
-1. Download and install [ollama](https://ollama.com/download)
-2. Download models (will need to update)
-	1. `ollama run llama3.1`
-	2. `ollama run phi3.5`
-### Docker
-- Download [Link](https://docs.docker.com/desktop/install/mac-install/) 
-### WebUI
-- From [Link](https://github.com/open-webui/open-webui)
-- Add to `~/.crc`: `alias start_gpt='docker run -d -p 3000:8080 --add-host=host.docker.internal:host-gateway -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:main'` 
-
 ## Uninstall Crap
 Just uninstall whatever crap you don't need.
 

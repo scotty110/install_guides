@@ -28,12 +28,6 @@ sh "$PARENT_DIR/network/gen_key.sh"
 # Install Python
 sh "$PARENT_DIR/python/install.sh"
 
-# Install Age
-sh "$PARENT_DIR/age/install.sh"
-
-# Install GPG
-sh "$PARENT_DIR/gpg/install.sh"
-
 # Install Custom Scripts
 sh "$PARENT_DIR/custom_scripts/install.sh"
 

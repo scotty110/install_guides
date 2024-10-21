@@ -27,6 +27,10 @@ NOTE: If dealing with SATA drives, use `cwipe` or `rwipe` this will dump random 
 3. Modify so auto mount on boot
 	1. `sudo vi /etc/cryttab` : `DRIVENAME    PATH_TO_DRIVE   /root/DRIVENAME_KEY`
 	2. `sudo vi /etc/fstab`  :  `/dev/mapper/DRIVENAME  MOUNT_PATH  ext4  defaults  0  0` 
+## Resize /
+We are using as a single user so just grow the `/` partition.
+1. Extend lvm: `sudo lvextend -l +100%FREE /dev/mapper/fedora-root`
+2. Resize filesystem (xfs): `sudo xfs_growfs /`
 ## Docker and Nvidia Runtime
 Some projects are using docker with Nvidia gpu's enabled. 
 ### Install Docker
@@ -34,4 +38,3 @@ Follow: [Link](https://docs.docker.com/engine/install/fedora/)
 Make sure to do post install: [Link](https://docs.docker.com/engine/install/linux-postinstall/)
 ### Nvidia Runtime
 After installing Docker follow [Link](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html) 
-``
