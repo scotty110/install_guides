@@ -1,18 +1,18 @@
 ## Nvidia Drivers 
 1. Install DKMS
 	1. `sudo dnf update -y`
-	2. `sudo dnf install epel-release`
-	3. `sudo dnf install kernel-devel kernel-headers gcc make perl`
-	4. `sudo dnf install dkms` 
+	3. `sudo dnf install -y epel-release`
+	4. `sudo dnf install -y dkms` 
 2. Install [Nvidia Driver](https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64) 
 	- Use Network install NOT local
 	1. `sudo dnf config-manager --add-repo https://developer.download.nvidia.com/compute/cuda/repos/rhel9/x86_64/cuda-rhel9.repo`
 	2. `sudo dnf -y module install nvidia-driver:open-dkms` 
 ## Base Install
-1. Copy `fedora_install` to machine
-2. Copy `authorized_keys` file to machine
-3. Run `fedora_install/install.sh`
-4. Move `authorized_keys` to `.ssh` 
+1. Install rsync on server: `sudo dnf install -y rsync`
+2. Copy `fedora_install` to machine
+3. Copy `authorized_keys` file to machine
+4. Run `fedora_install/install.sh`
+5. Move `authorized_keys` to `.ssh` 
 TODO, fix custom_scripts
 ## Auto Mount extra drives
 If we have extra drives, then we want to auto mount them. 
@@ -26,7 +26,9 @@ NOTE: If dealing with SATA drives, use `cwipe` or `rwipe` this will dump random 
 	2. `sudo cryptsetup luksAddKey PATH_TO_DRIVE /root/DRIVENAME_KEY`
 3. Modify so auto mount on boot
 	1. `sudo vi /etc/cryttab` : `DRIVENAME    PATH_TO_DRIVE   /root/DRIVENAME_KEY`
-	2. `sudo vi /etc/fstab`  :  `/dev/mapper/DRIVENAME  MOUNT_PATH  ext4  defaults  0  0` 
+	2. `sudo vi /etc/fstab`  :  `/dev/mapper/DRIVENAME  MOUNT_PATH  xfs  defaults  0  0` 
+4. Edit permissions: `sudo chown -R $USER:$USER MOUNT_PATH`
+5. Create link: `ln -s target_file link_name`
 ## Resize /
 We are using as a single user so just grow the `/` partition.
 1. Extend lvm: `sudo lvextend -l +100%FREE /dev/mapper/fedora-root`
